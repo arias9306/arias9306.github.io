@@ -16,12 +16,12 @@
  * beian {string} Chinese policy
  */
 export const site = {
-  title: 'Dev Blog', // required
+  title: 'Astro Theme Yi', // required
   favicon: '/favicon.svg', // required
-  description: 'Welcome to my independent blog website!',
-  author: 'Andrés Arias', // required
+  description: 'Welcome to my independent blog website! ',
+  author: 'Astro-Yi', // required
   avatar: '/avatar.png', // required
-  motto: 'Web Development with Heart and Mind.',
+  motto: 'Actions speak louder than words.',
   url: 'https://astro-yi-nu.vercel.app',
   recentBlogSize: 5,
   archivePageSize: 25,
@@ -56,80 +56,75 @@ export const categories = [
     iconClass: 'ri-draft-line',
     href: '/blog/1',
   },
-  // {
-  //   name: 'Feed',
-  //   iconClass: 'ri-lightbulb-flash-line',
-  //   href: '/feed/1',
-  // },
+  {
+    name: 'Feed',
+    iconClass: 'ri-lightbulb-flash-line',
+    href: '/feed/1',
+  },
   {
     name: 'Archive',
     iconClass: 'ri-archive-line',
     href: '/archive/1',
   },
-  // {
-  //   name: 'Message',
-  //   iconClass: 'ri-chat-1-line',
-  //   href: '/message',
-  // },
+  {
+    name: 'Message',
+    iconClass: 'ri-chat-1-line',
+    href: '/message',
+  },
   {
     name: 'Search',
     iconClass: 'ri-search-line',
     href: '/search',
   },
   {
-    name: 'About',
-    iconClass: 'ri-information-line',
-    href: '/about',
+    name: 'More',
+    iconClass: 'ri-more-fill',
+    href: 'javascript:void(0);',
+    children: [
+      {
+        name: 'About',
+        iconClass: 'ri-information-line',
+        href: '/about',
+      },
+      {
+        name: 'Friends',
+        iconClass: 'ri-user-5-line',
+        href: '/friends',
+        target: '_self',
+      },
+    ],
   },
-  // {
-  //   name: 'More',
-  //   iconClass: 'ri-more-fill',
-  //   href: 'javascript:void(0);',
-  //   children: [
-  //     {
-  //       name: 'About',
-  //       iconClass: 'ri-information-line',
-  //       href: '/about',
-  //     },
-  //     // {
-  //     //   name: "Friends",
-  //     //   iconClass: "ri-user-5-line",
-  //     //   href: "/friends",
-  //     //   target: "_self",
-  //     // },
-  //   ],
-  // },
 ];
 
 /**
  * Personal link address
  */
 export const infoLinks = [
-  // {
-  //   icon: "ri-telegram-fill",
-  //   name: "telegram",
-  //   outlink: "xxxxxxx",
-  // },
-  // {
-  //   icon: "ri-twitter-fill",
-  //   name: "twitter",
-  //   outlink: "xxxxxxx",
-  // },
-  // {
-  //   icon: "ri-instagram-fill",
-  //   name: "instagram",
-  //   outlink: "xxxxxxx",
-  // },
-  // {
-  //   icon: "ri-github-fill",
-  //   name: "github",
-  //   outlink: "https://github.com/cirry",
-  // },
-  // {
-  //   icon: "ri-rss-fill",
-  //   name: "rss",
-  //   outlink: "https://astro-yi-nu.vercel.app/rss.xml",
-  // },
+  {
+    icon: 'ri-telegram-fill',
+    name: 'telegram',
+    outlink: 'xxxxxxx',
+  },
+  {
+    icon: 'ri-twitter-fill',
+    name: 'twitter',
+    outlink: 'xxxxxxx',
+  },
+  {
+    icon: 'ri-instagram-fill',
+    name: 'instagram',
+    outlink: 'xxxxxxx',
+  },
+  {
+    icon: 'ri-github-fill',
+    name: 'github',
+    outlink: 'https://github.com/cirry',
+  },
+  {
+    icon: 'ri-rss-fill',
+    name: 'rss',
+    outlink: 'https://astro-yi-nu.vercel.app/rss.xml',
+  },
 ];
 
 /**
@@ -168,44 +163,44 @@ export const friendshipLinks = [
  * Comment Feature
  * enable {boolean}
  * type {string} required waline | giscus
- * serverUrl {string} server link
- * lang {string} link: https://waline.js.org/guide/features/i18n.html
- * pageSize {number} number of comments per page. default 10
- * wordLimit {number} Comment word s limit. When a single number is filled in, it 's the maximum number of comment words. No limit when set to 0
- * count {number} recent comment numbers
- * pageview {boolean} display the number of page views and comments of the article
- * reaction {string | string[]} Add emoji interaction function to the article
- * requiredMeta {string[]}  Set required fields, default anonymous
- * whiteList {string[]} set some pages not to display reaction
+ * walineConfig.serverUrl {string} server link
+ * walineConfig.lang {string} link: https://waline.js.org/guide/features/i18n.html
+ * walineConfig.pageSize {number} number of comments per page. default 10
+ * walineConfig.wordLimit {number} Comment word s limit. When a single number is filled in, it 's the maximum number of comment words. No limit when set to 0
+ * walineConfig.count {number} recent comment numbers
+ * walineConfig.pageview {boolean} display the number of page views and comments of the article
+ * walineConfig.reaction {string | string[]} Add emoji interaction function to the article
+ * walineConfig.requiredMeta {string[]}  Set required fields, default anonymous
+ * walineConfig.whiteList {string[]} set some pages not to display reaction
  */
 export const comment = {
   enable: false,
   type: 'giscus', // waline | giscus,
-  //waline config
-  serverUrl: 'https://xxxxx.xxxxx.app',
-  // waline config
-  lang: 'en',
-  pageSize: 20,
-  wordLimit: '',
-  count: 5,
-  pageview: true,
-  reaction: true,
-  requiredMeta: ['nick', 'mail'],
-  whiteList: ['/message/', '/friends/'],
+  walineConfig: {
+    serverUrl: 'https://xxxxx.xxxxx.app',
+    lang: 'en',
+    pageSize: 20,
+    wordLimit: '',
+    count: 5,
+    pageview: true,
+    reaction: true,
+    requiredMeta: ['nick', 'mail'],
+    whiteList: ['/message/', '/friends/'],
+  },
 
   // giscus config
   giscusConfig: {
-    'data-repo': 'cirry/astro-yi',
-    'data-repo-id': 'R_kgDOJNr3Jw',
+    'data-repo': 'xxxxxxx',
+    'data-repo-id': 'xxxxxx',
     'data-category': 'Announcements',
-    'data-category-id': 'DIC_kwDOJNr3J84CftB-',
+    'data-category-id': 'xxxxxxxxx',
     'data-mapping': 'pathname',
     'data-strict': '0',
     'data-reactions-enabled': '1',
     'data-emit-metadata': '0',
     'data-input-position': 'bottom',
     'data-theme': 'light',
-    'data-lang': 'zh-CN',
+    'data-lang': 'xxxxxxxxxxx',
     crossorigin: 'anonymous',
   },
 };

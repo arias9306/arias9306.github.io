@@ -33,7 +33,7 @@ const {mathjax = false, mermaid = false} = Astro.props
   <meta property="twitter:description" content={site.description}/>
   <meta property="twitter:image" content={new URL(site.avatar, Astro.site?.href).href}/>
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="msapplication-TileColor" content="#da532c"/>
   <meta name="msapplication-config" content="/browserconfig.xml"/>
   <meta name="theme-color" content="#ffffff"/>
@@ -59,7 +59,9 @@ const {mathjax = false, mermaid = false} = Astro.props
     <script async type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
 
   }
-
+  {
+    config.busuanzi && <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  }
   <!-- Google tag (gtag.js) -->
   {
     config.ga && <>
