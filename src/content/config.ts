@@ -1,4 +1,4 @@
-import {defineCollection, z} from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 
 const blog = defineCollection({
   type: 'content',
@@ -23,7 +23,7 @@ const feed = defineCollection({
     date: z.date().or(z.string()).optional().nullable(),
     donate: z.boolean().default(true),
     comment: z.boolean().default(true),
-  })
-})
+  }),
+});
 
-export const collections = {blog, feed};
+export const collections = { blog, feed };
