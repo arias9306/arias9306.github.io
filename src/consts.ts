@@ -16,13 +16,13 @@
  * beian {string} Chinese policy
  */
 export const site = {
-  title: 'Dev Blog', // required
+  title: 'Dev Notes Blog', // required
   favicon: '/favicon.svg', // required
   description: 'Welcome to my independent blog website! ',
   author: 'Andrés Arias', // required
   avatar: '/avatar.png', // required
   motto: 'Web Development with Heart and Mind.',
-  url: 'https://astro-yi-nu.vercel.app',
+  url: 'https://arias9306.github.io',
   recentBlogSize: 5,
   archivePageSize: 25,
   postPageSize: 10,
@@ -61,11 +61,11 @@ export const categories = [
   //   iconClass: 'ri-lightbulb-flash-line',
   //   href: '/feed/1',
   // },
-  // {
-  //   name: 'Archive',
-  //   iconClass: 'ri-archive-line',
-  //   href: '/archive/1',
-  // },
+  {
+    name: 'Archive',
+    iconClass: 'ri-archive-line',
+    href: '/archive/1',
+  },
   // {
   //   name: 'Message',
   //   iconClass: 'ri-chat-1-line',
@@ -115,11 +115,11 @@ export const infoLinks = [
   //   name: 'instagram',
   //   outlink: 'xxxxxxx',
   // },
-  // {
-  //   icon: 'ri-github-fill',
-  //   name: 'github',
-  //   outlink: 'https://github.com/cirry',
-  // },
+  {
+    icon: 'ri-github-fill',
+    name: 'github',
+    outlink: 'https://github.com/arias9306',
+  },
   // {
   //   icon: 'ri-rss-fill',
   //   name: 'rss',
