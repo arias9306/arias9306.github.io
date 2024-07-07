@@ -3,7 +3,7 @@ date: 2024-07-07
 title: Angular Change Detection Notes
 description: Angular's change detection mechanism is one of its most powerful features, ensuring that the user interface (UI) stays in sync with the application state. However, it can also be a bit of a black box, especially for new developers. In this post, we'll demystify Angular change detection by highlighting some key points that will help you better understand and optimize your Angular applications.
 tags: ['angular', 'change-detection']
-category: angular
+category: Angular
 ---
 
 Angular's change detection mechanism is one of its most powerful features, ensuring that the user interface (UI) stays in sync with the application state. However, it can also be a bit of a black box, especially for new developers. In this post, we'll demystify Angular change detection by highlighting some key points that will help you better understand and optimize your Angular applications.
