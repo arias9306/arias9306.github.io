@@ -126,6 +126,10 @@ console.log('Original array:', fruits); // -> ['banana', 'apple', 'orange', 'gra
 console.log('Array with replaced element:', replacedFruits); // -> ['banana', 'peach', 'orange', 'grapes']
 ```
 
+:::caution
+The methods `toSorted()`, `toSpliced()`, `toReversed()`, and `with()` only perform a shallow copy of the array. This means that while they create a new array with the modified elements, the elements themselves are not deeply cloned. If the array contains objects or other complex data types, these references will still point to the same objects as in the original array.
+:::
+
 ## Other Array Methods
 
 Let's explore a few lesser-known methods
