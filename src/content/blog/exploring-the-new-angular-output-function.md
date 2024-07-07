@@ -3,7 +3,7 @@ date: 2024-07-06
 title: Exploring the New output() Function in Angular
 description: Angular has introduced a new way to define output events in components with the output() function. This addition provides a modern and concise alternative to the traditional @Output decorator.
 tags: ['angular']
-category: angular
+category: Angular
 ---
 
 :::note
