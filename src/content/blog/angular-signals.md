@@ -9,7 +9,7 @@ category: Angular
 In Angular, a signal is a way to keep track of a value and let others know when that value changes. Signals can hold any type of value, from simple numbers to complex data. You get a signal's value by calling its getter function, which helps Angular know where the signal is used. Signals can be either **writable**, meaning you can change their value, or **read-only**, meaning the value cannot be changed.
 
 :::note
-When you access a signal within the template of an `OnPush` component, Angular tracks that signal as a dependency for the component. If the signal’s value changes, Angular automatically marks the component for update, ensuring it refreshes during the next change detection cycle.
+When you access a signal within the template of an `OnPush` component, Angular tracks that signal as a dependency for the component. If the signal’s value changes, Angular automatically marks the component for update, ensuring it refreshes during the next change detection cycle
 :::
 
 ## Writable Signals
