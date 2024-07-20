@@ -1,7 +1,7 @@
 ---
 date: 2024-07-20
 title: Angular Signals
-description: In Angular, a signal is a way to keep track of a value and let others know when that value changes. Signals can hold any type of value, from simple numbers to complex data. You get a signal's value by calling its getter function, which helps Angular know where the signal is used. Signals can be either **writable**, meaning you can change their value, or **read-only**, meaning the value cannot be changed.
+description: In Angular, a signal is a way to keep track of a value and let others know when that value changes. Signals can hold any type of value, from simple numbers to complex data. You get a signal's value by calling its getter function, which helps Angular know where the signal is used. Signals can be either writable, meaning you can change their value, or read-only, meaning the value cannot be changed.
 tags: ['angular', 'signals']
 category: Angular
 ---
