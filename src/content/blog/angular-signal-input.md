@@ -1,7 +1,7 @@
 ---
 date: 2024-07-21
 title: Angular Signal Input
-description: Pending.
+description: Signal inputs let you get values from parent components. These values are shown using a Signal.
 tags: ['angular', 'signals']
 category: Angular
 ---
