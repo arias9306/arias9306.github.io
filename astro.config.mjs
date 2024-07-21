@@ -45,5 +45,13 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({})],
     rehypePlugins: [customRehypeLazyLoadImage],
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+      defaultColor: false,
+      wrap: true,
+    },
   },
 });
