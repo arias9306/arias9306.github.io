@@ -16,7 +16,7 @@ When you access a signal within the template of an `OnPush` component, Angular t
 
 Writable signals offer an easy way to update their values directly. You create a writable signal by calling the signal function with an initial value. To change the value of a writable signal, you can either use the `.set()` method to assign a new value directly or use the `.update()` method to compute a new value based on the current one.
 
-```ts "signal" ".set" ".update" title="app-component.ts"
+```angular-ts "signal" ".set" ".update" title="app-component.ts"
 import { Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
