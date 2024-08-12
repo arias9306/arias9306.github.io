@@ -40,7 +40,7 @@ export const config = {
   busuanzi: false,
   lang: 'en', // en | zh-cn
   codeFoldingStartLines: 16, // Need to re-run the project to take effect
-  ga: false, // If you want to integrate with Google Analytics, just enter your GA-ID here.
+  ga: 'G-N2XYZ5C2EY', // If you want to integrate with Google Analytics, just enter your GA-ID here.
 };
 
 /**
