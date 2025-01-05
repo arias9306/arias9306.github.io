@@ -1,35 +1,61 @@
 ---
-import {getCollection} from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro'
-import PostTitle from "../../components/PostTitle.astro";
-import BlogFooter from '../../components/BlogFooter.astro'
-import {getCollectionByName} from "../../utils/getCollectionByName";
-import {sortPostsByDate} from "../../utils/sortPostsByDate";
-import Donate from '../../components/Donate.astro'
-import {donate} from "../../consts";
+import { getCollection } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import PostTitle from '../../components/PostTitle.astro';
+import BlogFooter from '../../components/BlogFooter.astro';
+import { getCollectionByName } from '../../utils/getCollectionByName';
+import { sortPostsByDate } from '../../utils/sortPostsByDate';
+import Donate from '../../components/Donate.astro';
+import { donate } from '../../consts';
 
 export async function getStaticPaths() {
-  const blogEntries = (await getCollection('blog')).filter(({data}) => {
-    return import.meta.env.PROD ? !data.draft : true
+  const blogEntries = (await getCollection('blog')).filter(({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
   });
-  return blogEntries.map(entry => ({
-    params: {slug: entry.slug}, props: {entry,},
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
-const {entry} = Astro.props;
-const {Content, remarkPluginFrontmatter} = await entry.render();
+interface Props {
+  entry: {
+    id: string;
+    data: {
+      title: string;
+      description: string;
+      date: Date;
+      tags: string[];
+      category: string;
+      sticky: number;
+      mathjax: boolean;
+      mermaid: boolean;
+      draft: boolean;
+      toc: boolean;
+      donate: boolean;
+      comment: boolean;
+    };
+    body: string;
+    filePath: string;
+    digest: string;
+    render: () => any;
+    slug: string;
+    collection: string;
+    rendered: string;
+  };
+}
 
-const lastModified = remarkPluginFrontmatter.lastModified
-const readingTime = remarkPluginFrontmatter.readingTime
+const { entry } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await entry.render();
 
-const posts = await getCollectionByName("blog");
+const lastModified = remarkPluginFrontmatter.lastModified;
+const readingTime = remarkPluginFrontmatter.readingTime;
+
+const posts = await getCollectionByName('blog');
 const sortPosts = sortPostsByDate(posts);
 
-const currentPostIndex = sortPosts.findIndex(
-  (postItem) => postItem.data.title === entry.data.title
-);
-let prevPost, nextPost
+const currentPostIndex = sortPosts.findIndex((postItem) => postItem.data.title === entry.data.title);
+let prevPost, nextPost;
 if (sortPosts[currentPostIndex - 1]) {
   prevPost = sortPosts[currentPostIndex - 1];
 }
@@ -37,12 +63,13 @@ if (sortPosts[currentPostIndex + 1]) {
   nextPost = sortPosts[currentPostIndex + 1];
 }
 ---
+
 <BlogPost frontmatter={entry.data}>
   <div>
-    <PostTitle slug={`/blog/${entry.slug}`} {...entry.data} lastModified={lastModified} readingTime={readingTime}></PostTitle>
+    <PostTitle slug={`/blog/${entry.slug}`} {...entry.data} lastModified={lastModified} readingTime={readingTime} />
     <div class="divider-horizontal"></div>
     <article class="markdown-body">
-      <Content/>
+      <Content />
     </article>
     <div class="divider-horizontal"></div>
     <div class="h-8 text-skin-base">
@@ -53,11 +80,11 @@ if (sortPosts[currentPostIndex + 1]) {
             href={'/' + prevPost.collection + '/' + prevPost.slug}
             title={prevPost.data.title}
           >
-            <i class="ri-arrow-left-s-fill"/>
+            <i class="ri-arrow-left-s-fill" />
             {prevPost.data.title}
           </a>
         ) : (
-          <div/>
+          <div />
         )
       }
       {
@@ -66,18 +93,14 @@ if (sortPosts[currentPostIndex + 1]) {
             <a class="truncate " href={'/' + nextPost.collection + '/' + nextPost.slug} title={nextPost.data.title}>
               {nextPost.data.title}
             </a>
-            <i class="ri-arrow-right-s-fill float-right"/>
+            <i class="ri-arrow-right-s-fill float-right" />
           </div>
         ) : (
-          <div/>
+          <div />
         )
       }
     </div>
-    <BlogFooter title={entry.data.title} url={entry.collection + '/' + entry.slug} date={entry.data.date}></BlogFooter>
-    {
-      donate.enable && entry.data.donate &&
-      <Donate></Donate>
-    }
+    <BlogFooter title={entry.data.title} url={entry.collection + '/' + entry.slug} date={entry.data.date} />
+    {donate.enable && entry.data.donate && <Donate />}
   </div>
-
 </BlogPost>
