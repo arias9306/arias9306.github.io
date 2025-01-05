@@ -11,6 +11,7 @@ import { visit } from 'unist-util-visit';
 import { remarkAsides } from './src/remarkPlugin/remark-asides.js';
 import { remarkModifiedTime } from './src/remarkPlugin/remark-modified-time.mjs';
 import { resetRemark } from './src/remarkPlugin/reset-remark.js';
+import { remarkGithubCard } from './src/remarkPlugin/remark-github-card.js';
 
 function customRehypeLazyLoadImage() {
   return function (tree) {
@@ -43,7 +44,7 @@ export default defineConfig({
     mdx(),
   ],
   markdown: {
-    remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({})],
+    remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({}), remarkGithubCard()],
     rehypePlugins: [customRehypeLazyLoadImage],
     shikiConfig: {
       themes: {

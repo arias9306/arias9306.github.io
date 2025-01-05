@@ -59,7 +59,7 @@ import {t} from '../i18n/utils'
   if (toc) {
     tocbot.refresh();
     let tocContainer = document.getElementsByClassName('toc-container')
-    if (tocContainer[0].textContent.replace(/\s/g, '') === '') {
+    if (tocContainer[0].textContent?.replace(/\s/g, '') === '') {
       toc.classList.toggle('hidden')
     } else {
       toc.classList.add('block')
