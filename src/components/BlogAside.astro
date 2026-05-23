@@ -61,7 +61,7 @@ let resultPosts = sortPosts.splice(0, site.recentBlogSize);
     {
       resultPosts.map((post) => (
         <a
-          href={"/blog/" + post.slug}
+          href={"/blog/" + post.id}
           class="truncate cursor-pointr mt-1 hover:text-skin-active"
           title={post.data.title}
         >
