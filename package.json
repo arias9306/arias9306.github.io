@@ -10,33 +10,33 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.3",
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/solid-js": "^5.0.1",
-    "@astrojs/tailwind": "^5.1.4",
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/solid-js": "^6.0.1",
+    "@astrojs/tailwind": "^6.0.2",
     "@expressive-code/plugin-collapsible-sections": "^0.33.5",
     "@expressive-code/plugin-line-numbers": "^0.33.5",
     "@fancyapps/ui": "^5.0.36",
-    "@waline/client": "^3.3.0",
-    "astro": "^5.1.2",
+    "@waline/client": "^3.13.0",
+    "astro": "^6.3.7",
     "astro-expressive-code": "^0.33.5",
     "child_process": "^1.0.2",
-    "dayjs": "^1.11.12",
-    "hastscript": "^9.0.0",
-    "lodash": "^4.17.21",
+    "dayjs": "^1.11.20",
+    "hastscript": "^9.0.1",
+    "lodash": "^4.18.1",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
-    "remark-directive": "^3.0.0",
-    "remixicon": "^4.3.0",
-    "solid-js": "^1.8.20",
-    "tailwindcss": "^3.4.9",
-    "tocbot": "^4.29.0",
-    "typescript": "^5.5.4",
+    "remark-directive": "^3.0.1",
+    "remixicon": "^4.9.1",
+    "solid-js": "^1.9.13",
+    "tailwindcss": "^3.4.19",
+    "tocbot": "^4.36.8",
+    "typescript": "^5.9.3",
     "unist-util-remove": "^4.0.0",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
-    "sass": "^1.77.8"
+    "sass": "^1.100.0"
   }
 }
