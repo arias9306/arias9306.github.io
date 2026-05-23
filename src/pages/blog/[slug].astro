@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import PostTitle from '../../components/PostTitle.astro';
 import BlogFooter from '../../components/BlogFooter.astro';
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     return import.meta.env.PROD ? !data.draft : true;
   });
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -46,7 +46,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await entry.render();
+const { Content, remarkPluginFrontmatter } = await render(entry);
 
 const lastModified = remarkPluginFrontmatter.lastModified;
 const readingTime = remarkPluginFrontmatter.readingTime;
@@ -66,7 +66,7 @@ if (sortPosts[currentPostIndex + 1]) {
 
 <BlogPost frontmatter={entry.data}>
   <div>
-    <PostTitle slug={`/blog/${entry.slug}`} {...entry.data} lastModified={lastModified} readingTime={readingTime} />
+    <PostTitle slug={`/blog/${entry.id}`} {...entry.data} lastModified={lastModified} readingTime={readingTime} />
     <div class="divider-horizontal"></div>
     <article class="markdown-body">
       <Content />
@@ -77,7 +77,7 @@ if (sortPosts[currentPostIndex + 1]) {
         prevPost ? (
           <a
             class="truncate  w-auto max-w-[40%] float-left"
-            href={'/' + prevPost.collection + '/' + prevPost.slug}
+            href={'/' + prevPost.collection + '/' + prevPost.id}
             title={prevPost.data.title}
           >
             <i class="ri-arrow-left-s-fill" />
@@ -90,7 +90,7 @@ if (sortPosts[currentPostIndex + 1]) {
       {
         nextPost ? (
           <div class="flex item-center float-right w-auto max-w-[40%] text-right">
-            <a class="truncate " href={'/' + nextPost.collection + '/' + nextPost.slug} title={nextPost.data.title}>
+            <a class="truncate " href={'/' + nextPost.collection + '/' + nextPost.id} title={nextPost.data.title}>
               {nextPost.data.title}
             </a>
             <i class="ri-arrow-right-s-fill float-right" />
@@ -100,7 +100,7 @@ if (sortPosts[currentPostIndex + 1]) {
         )
       }
     </div>
-    <BlogFooter title={entry.data.title} url={entry.collection + '/' + entry.slug} date={entry.data.date} />
+    <BlogFooter title={entry.data.title} url={entry.collection + '/' + entry.id} date={entry.data.date} />
     {donate.enable && entry.data.donate && <Donate />}
   </div>
 </BlogPost>

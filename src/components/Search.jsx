@@ -67,7 +67,7 @@ export function Search(props) {
           <>
             <a
               class="text-xl underline-offset-4 decoration-skin-base decoration-wavy hover:underline hover:decoration-sky-500 font-bold"
-              href={'/' + post.collection + '/' + post.slug}
+              href={'/' + post.collection + '/' + post.id}
               innerHTML={post.data.title}
             ></a>
             <div class="flex items-center">
