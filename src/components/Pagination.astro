@@ -44,7 +44,7 @@ if (totalPage === 1) {
 
 ---
 
-<div class="flex items-center justify-center my-16 text-skin-base">
+<div class="flex items-center justify-center mt-16 text-skin-base">
   {
     pager.length > 4 && (
       <a href={prefixUrl + "1"} style="font-size:18px;line-height:32px;">
@@ -84,6 +84,7 @@ if (totalPage === 1) {
 </div>
 
 <style>
+  @reference "../styles/index.css";
   a {
     @apply border mr-2 h-8 w-8 text-center leading-8 rounded cursor-pointer hover:text-skin-active;
   }

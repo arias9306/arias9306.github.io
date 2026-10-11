@@ -3,9 +3,79 @@
 @import 'remixicon/fonts/remixicon.css';
 @import 'tocbot/dist/tocbot.css';
 @import 'remark-aside.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* ── Tailwind v4 configuration (migrated from tailwind.config.js) ── */
+
+/* Dark mode: the site toggles html[data-theme="dark"] (v3 had darkmode: 'class'). */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  /* Custom breakpoints (were theme.screens). */
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 720px;
+  --breakpoint-lg: 840px;
+  --breakpoint-xl: 960px;
+  --breakpoint-2xl: 1080px;
+
+  /* theme.extend.colors.custom.* */
+  --color-custom-title: #555;
+  --color-custom-subtitle: #999;
+  --color-custom-hover: #e0a419;
+  --color-custom-active: #ff7f50;
+  --color-custom-grey: #f6f6f6;
+  --color-custom-nav: #ded6d8;
+  --color-custom-primary: #edede9;
+  --color-custom-second: #d6ccc2;
+  --color-custom-third: #f5ebe0;
+  --color-custom-forth: #e3d5ca;
+  --color-custom-fifth: #d5bdaf;
+}
+
+/*
+ * Skin color utilities.
+ *
+ * In Tailwind v3 these were defined per-prefix in tailwind.config.js
+ * (text-skin-base = --color-text, bg-skin-fill = --color-fill,
+ * border-skin-base = --color-border, ...) — the SAME token name mapped to
+ * DIFFERENT colors depending on the utility prefix. A single v4 --color-skin-*
+ * variable cannot express that (it would force text/bg/border to share one
+ * color), so each combination is defined explicitly via @utility. Variants
+ * (hover / focus / placeholder / ...) are supported automatically.
+ */
+@utility text-skin-base {
+  color: rgb(var(--color-text));
+}
+@utility text-skin-active {
+  color: rgb(var(--color-text-active));
+}
+@utility bg-skin-fill {
+  background-color: rgb(var(--color-fill));
+}
+@utility bg-skin-secondary {
+  background-color: rgb(var(--color-fill-secondary));
+}
+@utility bg-skin-card {
+  background-color: rgb(var(--color-card));
+}
+@utility bg-skin-modal {
+  background-color: rgb(var(--color-modal));
+}
+@utility border-skin-normal {
+  border-color: rgb(var(--color-text));
+}
+@utility border-skin-base {
+  border-color: rgb(var(--color-border));
+}
+@utility border-l-skin-base {
+  border-left-color: rgb(var(--color-border));
+}
+@utility decoration-skin-base {
+  text-decoration-color: rgb(var(--color-border));
+}
+@utility decoration-skin-active {
+  text-decoration-color: rgb(var(--color-text-active));
+}
 
 @font-face {
   font-family: 'jetbrains-mono';
@@ -34,6 +104,11 @@ menu {
 }
 
 @layer base {
+  /* container.center (v3) — center the container utility (v4 does not by default). */
+  .container {
+    margin-inline: auto;
+  }
+
   :root,
   html[data-theme='light'] {
     --color-fill: 241, 241, 241;
@@ -90,7 +165,7 @@ menu {
   /* 侧边最近评论列表样式 */
   .waline-comment-content {
     @apply flex items-center w-full mb-2;
-    border-bottom:  1px solid rgba(var(--color-text), .3);
+    border-bottom: 1px solid rgba(var(--color-text), 0.3);
   }
 
   .waline-comment-author {
@@ -247,7 +322,7 @@ menu {
   display: none !important;
 }
 
-.github-avatar{
+.github-avatar {
   border-radius: 50%;
   width: 32px;
   height: 32px;
