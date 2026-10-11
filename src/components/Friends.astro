@@ -8,10 +8,7 @@ const { name, avatar, description, url } = Astro.props;
   target="_blank"
 >
   <img class="h-16 w-16 rounded m-2" src={avatar} alt="avatar" />
-  <div
-    style="width:calc(100% - 6em);height:60%"
-    class="flex flex-col justify-around"
-  >
+  <div style="width:calc(100% - 6em);height:60%" class="flex flex-col justify-around">
     <div title={name} class="truncate font-bold">
       {name}
     </div>

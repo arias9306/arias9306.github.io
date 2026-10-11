@@ -5,9 +5,7 @@ import { formatDate } from '../../utils/formatDate';
 import { site } from '../../consts';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = (await getCollection('blog')).filter(({ data }) =>
-    import.meta.env.PROD ? !data.draft : true
-  );
+  const posts = (await getCollection('blog')).filter(({ data }) => (import.meta.env.PROD ? !data.draft : true));
   return posts.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },

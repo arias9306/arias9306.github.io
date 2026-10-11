@@ -41,7 +41,7 @@ const h = (
   type: string,
   style: Record<string, unknown>,
   children?: unknown,
-  extraProps: Record<string, unknown> = {}
+  extraProps: Record<string, unknown> = {},
 ): Node => ({
   type,
   props: { style, ...extraProps, ...(children !== undefined ? { children } : {}) },
@@ -111,7 +111,7 @@ export function buildOgTree({
               color: color.title,
             }),
       },
-      text
+      text,
     );
 
   return h(
@@ -124,8 +124,7 @@ export function buildOgTree({
       height: '100%',
       boxSizing: 'border-box',
       backgroundColor: color.bg,
-      backgroundImage:
-        'radial-gradient(circle at 100% 0%, rgba(250, 189, 47, 0.12), rgba(40, 40, 40, 0) 55%)',
+      backgroundImage: 'radial-gradient(circle at 100% 0%, rgba(250, 189, 47, 0.12), rgba(40, 40, 40, 0) 55%)',
       fontFamily: 'JetBrains Mono',
       padding: '56px 72px',
       position: 'relative',
@@ -151,28 +150,19 @@ export function buildOgTree({
         [
           h('div', { display: 'flex', alignItems: 'center', gap: '18px' }, [
             avatarDataUri
-              ? h(
-                  'img',
-                  { borderRadius: '50%', objectFit: 'cover' },
-                  undefined,
-                  { src: avatarDataUri, width: 64, height: 64 }
-                )
+              ? h('img', { borderRadius: '50%', objectFit: 'cover' }, undefined, {
+                  src: avatarDataUri,
+                  width: 64,
+                  height: 64,
+                })
               : h('div', { display: 'flex' }),
             h('div', { display: 'flex', flexDirection: 'column', gap: '2px' }, [
-              h(
-                'div',
-                { display: 'flex', fontSize: '26px', fontWeight: 700, color: color.title },
-                siteName
-              ),
-              h(
-                'div',
-                { display: 'flex', fontSize: '20px', color: color.muted },
-                eyebrow ?? author
-              ),
+              h('div', { display: 'flex', fontSize: '26px', fontWeight: 700, color: color.title }, siteName),
+              h('div', { display: 'flex', fontSize: '20px', color: color.muted }, eyebrow ?? author),
             ]),
           ]),
           category ? pill(category, true) : h('div', { display: 'flex' }),
-        ]
+        ],
       ),
       h(
         'div',
@@ -198,8 +188,8 @@ export function buildOgTree({
                 lineClamp: 4,
                 overflow: 'hidden',
               },
-              title
-            )
+              title,
+            ),
           ),
           description
             ? h(
@@ -212,64 +202,60 @@ export function buildOgTree({
                   lineClamp: 3,
                   overflow: 'hidden',
                 },
-                truncate(description, 140)
+                truncate(description, 140),
               )
             : h('div', { display: 'flex' }),
           tagList.length
             ? h(
                 'div',
                 { display: 'flex', flexWrap: 'wrap', gap: '12px' },
-                tagList.map((tag) => pill(tag))
+                tagList.map((tag) => pill(tag)),
               )
             : h('div', { display: 'flex' }),
-        ]
+        ],
       ),
-      h(
-        'div',
-        { display: 'flex', flexDirection: 'column', width: '100%', flexShrink: 0 },
-        [
-          h('div', {
+      h('div', { display: 'flex', flexDirection: 'column', width: '100%', flexShrink: 0 }, [
+        h('div', {
+          display: 'flex',
+          width: '100%',
+          height: '2px',
+          backgroundColor: color.border,
+          marginBottom: '22px',
+        }),
+        h(
+          'div',
+          {
             display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
             width: '100%',
-            height: '2px',
-            backgroundColor: color.border,
-            marginBottom: '22px',
-          }),
-          h(
-            'div',
-            {
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              width: '100%',
-              gap: '40px',
-            },
-            [
-              h(
-                'div',
-                {
-                  display: 'flex',
-                  fontSize: '20px',
-                  color: color.muted,
-                  whiteSpace: 'nowrap',
-                },
-                metaLine
-              ),
-              h(
-                'div',
-                {
-                  display: 'flex',
-                  fontSize: '20px',
-                  color: color.accent,
-                  whiteSpace: 'nowrap',
-                },
-                'arias9306.github.io'
-              ),
-            ]
-          ),
-        ]
-      ),
-    ]
+            gap: '40px',
+          },
+          [
+            h(
+              'div',
+              {
+                display: 'flex',
+                fontSize: '20px',
+                color: color.muted,
+                whiteSpace: 'nowrap',
+              },
+              metaLine,
+            ),
+            h(
+              'div',
+              {
+                display: 'flex',
+                fontSize: '20px',
+                color: color.accent,
+                whiteSpace: 'nowrap',
+              },
+              'arias9306.github.io',
+            ),
+          ],
+        ),
+      ]),
+    ],
   );
 }
 

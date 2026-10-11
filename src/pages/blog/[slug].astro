@@ -73,32 +73,28 @@ if (sortPosts[currentPostIndex + 1]) {
     </article>
     <div class="divider-horizontal"></div>
     <div class="h-8 text-skin-base">
-      {
-        prevPost ? (
-          <a
-            class="truncate  w-auto max-w-[40%] float-left"
-            href={'/' + prevPost.collection + '/' + prevPost.id}
-            title={prevPost.data.title}
-          >
-            <i class="ri-arrow-left-s-fill" />
-            {prevPost.data.title}
+      {prevPost ? (
+        <a
+          class="truncate w-auto max-w-[40%] float-left"
+          href={'/' + prevPost.collection + '/' + prevPost.id}
+          title={prevPost.data.title}
+        >
+          <i class="ri-arrow-left-s-fill" />
+          {prevPost.data.title}
+        </a>
+      ) : (
+        <div />
+      )}
+      {nextPost ? (
+        <div class="flex item-center float-right w-auto max-w-[40%] text-right">
+          <a class="truncate" href={'/' + nextPost.collection + '/' + nextPost.id} title={nextPost.data.title}>
+            {nextPost.data.title}
           </a>
-        ) : (
-          <div />
-        )
-      }
-      {
-        nextPost ? (
-          <div class="flex item-center float-right w-auto max-w-[40%] text-right">
-            <a class="truncate " href={'/' + nextPost.collection + '/' + nextPost.id} title={nextPost.data.title}>
-              {nextPost.data.title}
-            </a>
-            <i class="ri-arrow-right-s-fill float-right" />
-          </div>
-        ) : (
-          <div />
-        )
-      }
+          <i class="ri-arrow-right-s-fill float-right" />
+        </div>
+      ) : (
+        <div />
+      )}
     </div>
     <BlogFooter title={entry.data.title} url={entry.collection + '/' + entry.id} date={entry.data.date} />
     {donate.enable && entry.data.donate && <Donate />}
