@@ -1,0 +1,23 @@
+---
+import IndexPage from 'src/layouts/IndexPage.astro';
+import ProjectCard from 'src/components/ProjectCard.astro';
+import { projects } from '../../consts';
+import { t } from '../../i18n/utils';
+
+const title = t('projects.title');
+const description = t('projects.subtitle');
+---
+
+<IndexPage title={title} description={description}>
+  <div class="space-y-1">
+    <h1 class="text-3xl font-extrabold" style="line-height: 40px;">
+      {title}
+    </h1>
+    <p class="text-sm">{description}</p>
+  </div>
+  <div class="grid grid-cols-1 gap-4 w-full">
+    {projects.map((project) => (
+      <ProjectCard {...project} />
+    ))}
+  </div>
+</IndexPage>
