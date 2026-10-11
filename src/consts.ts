@@ -67,6 +67,11 @@ export const categories = [
     iconClass: 'ri-archive-line',
     href: '/archive/1',
   },
+  {
+    name: 'Projects',
+    iconClass: 'ri-apps-2-line',
+    href: '/projects',
+  },
   // {
   //   name: 'Message',
   //   iconClass: 'ri-chat-1-line',
@@ -158,6 +163,48 @@ export const friendshipLinks = [
   //   avatar: "https://cirry.cn/avatar.png",
   //   description: '前端开发的日常'
   // },
+];
+
+export type Project = {
+  name: string;
+  description: string;
+  repo: string;
+  demo?: string;
+  language: string;
+  tech?: string[];
+  image?: string;
+  featured?: boolean;
+};
+
+/**
+ * Projects Page
+ * name {string} project name
+ * description {string} short summary
+ * repo {string} source code URL
+ * demo {string} optional live demo URL
+ * language {string} primary language (shown as a badge)
+ * tech {string[]} optional list of technologies
+ * image {string} optional screenshot placed in the public directory
+ * featured {boolean} optional, reserved for highlighting
+ */
+export const projects: Project[] = [
+  {
+    name: 'schema-api',
+    description:
+      'A schema-driven REST API in Go. Define tables in a JSON schema and it creates an in-memory SQLite database, seeds it with sample data, and exposes CRUD endpoints with validation, pagination and sorting.',
+    repo: 'https://github.com/arias9306/schema-api',
+    language: 'Go',
+    tech: ['Go', 'SQLite', 'REST'],
+  },
+  {
+    name: 'angular-signal-forms',
+    description:
+      "Hands-on examples for learning Angular's Signal Forms API (v21+), covering form creation, field states, input types and multiple validation strategies.",
+    repo: 'https://github.com/arias9306/angular-signal-forms',
+    language: 'TypeScript',
+    demo: 'https://angular-signal-forms.web.app/',
+    tech: ['Angular', 'Signals', 'Forms'],
+  },
 ];
 
 /**

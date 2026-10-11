@@ -8,11 +8,11 @@ import Comment from '../components/Comment.astro';
 import Donate from '../components/Donate.astro';
 import { donate, comment, config } from '../consts';
 
-const { frontmatter = { comment: false, donate: false } } = Astro.props;
+const { frontmatter = { comment: false, donate: false }, title, description } = Astro.props;
 ---
 
 <html lang={config.lang}>
-  <BaseHead />
+  <BaseHead title={title} description={description} />
 
   <body class="bg-skin-secondary relative">
     <Header />
