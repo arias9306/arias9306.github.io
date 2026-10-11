@@ -64,7 +64,7 @@ if (sortPosts[currentPostIndex + 1]) {
 }
 ---
 
-<BlogPost frontmatter={entry.data}>
+<BlogPost frontmatter={entry.data} image={`/og/${entry.id}.png`}>
   <div>
     <PostTitle slug={`/blog/${entry.id}`} {...entry.data} lastModified={lastModified} readingTime={readingTime} />
     <div class="divider-horizontal"></div>

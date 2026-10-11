@@ -16,11 +16,12 @@
  * beian {string} Chinese policy
  */
 export const site = {
-  title: 'Dev Notes Blog', // required
+  title: 'Arias Dev Notes', // required
   favicon: '/favicon.svg', // required
   description: 'Welcome to my independent blog website! ',
   author: 'Andrés Arias', // required
   avatar: '/avatar.png', // required
+  ogImage: '/og/site.png', // default Open Graph / social share image (generated at build time)
   motto: 'Web Development with Heart and Mind.',
   url: 'https://arias9306.github.io',
   recentBlogSize: 5,

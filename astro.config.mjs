@@ -1,7 +1,8 @@
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import solid from '@astrojs/solid-js';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import expressiveCode from 'astro-expressive-code';
@@ -28,9 +29,9 @@ function customRehypeLazyLoadImage() {
 
 export default defineConfig({
   site: 'https://arias9306.github.io/',
+  compressHTML: true,
   integrations: [
     sitemap(),
-    tailwind(),
     solid(),
     expressiveCode({
       plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
@@ -43,9 +44,14 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
-    remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({}), remarkGithubCard()],
-    rehypePlugins: [customRehypeLazyLoadImage],
+    processor: unified({
+      remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({}), remarkGithubCard()],
+      rehypePlugins: [customRehypeLazyLoadImage],
+    }),
     shikiConfig: {
       themes: {
         light: 'github-light',
