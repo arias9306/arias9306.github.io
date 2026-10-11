@@ -1,6 +1,6 @@
 ---
-import '../styles/index.css'
-import {site, config} from "../consts";
+import '../styles/index.css';
+import { site, config } from '../consts';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const {
@@ -14,79 +14,79 @@ const {
 
 const ogImageURL = new URL(image, Astro.site?.href).href;
 ---
+
 <head>
   <!-- Global Metadata -->
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="icon" type="image/svg+xml" href={site.favicon}/>
-  <meta name="generator" content={Astro.generator}/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href={site.favicon} />
+  <meta name="generator" content={Astro.generator} />
   <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL}/>
+  <link rel="canonical" href={canonicalURL} />
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content={title}/>
-  <meta name="description" content={description}/>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content={type}/>
-  <meta property="og:url" content={Astro.url}/>
-  <meta property="og:site_name" content={site.title}/>
-  <meta property="og:title" content={title}/>
-  <meta property="og:description" content={description}/>
-  <meta property="og:image" content={ogImageURL}/>
-  <meta property="og:image:secure_url" content={ogImageURL}/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-  <meta property="og:image:alt" content={description}/>
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:site_name" content={site.title} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:secure_url" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={description} />
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image"/>
-  <meta property="twitter:url" content={Astro.url}/>
-  <meta property="twitter:title" content={title}/>
-  <meta property="twitter:description" content={description}/>
-  <meta property="twitter:image" content={ogImageURL}/>
-  <meta property="twitter:image:alt" content={description}/>
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ogImageURL} />
+  <meta property="twitter:image:alt" content={description} />
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="msapplication-TileColor" content="#da532c"/>
-  <meta name="msapplication-config" content="/browserconfig.xml"/>
-  <meta name="theme-color" content="#ffffff"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+  <meta name="theme-color" content="#ffffff" />
 
-  <link rel="sitemap" href="/sitemap-0.xml"/>
+  <link rel="sitemap" href="/sitemap-0.xml" />
   <title>{title === site.title ? site.title : `${title} | ${site.title}`}</title>
   <script is:inline src="/toggle-theme.js"></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
-        inlineMath: [
-          ["\\(", "\\)"],
-        ],
+        inlineMath: [['\\(', '\\)']],
       },
     });
   </script>
-  {
-    mathjax &&
-    <script async type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
-  }
-  {
-    mermaid &&
+  {mathjax && (
+    <script
+      async
+      type="text/javascript"
+      src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"
+    ></script>
+  )}
+  {mermaid && (
     <script async type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
-
-  }
-  {
-    config.busuanzi && <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  }
+  )}
+  {config.busuanzi && <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>}
   <!-- Google tag (gtag.js) -->
-  {
-    config.ga && <>
-    <script src={"https://www.googletagmanager.com/gtag/js?id=" +　config.ga}></script>
-    <script define:vars={{ga: config.ga}} >
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  {config.ga && (
+    <>
+      <script src={'https://www.googletagmanager.com/gtag/js?id=' + config.ga}></script>
+      <script define:vars={{ ga: config.ga }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-      gtag('config', ga);
-    </script>
+        gtag('config', ga);
+      </script>
     </>
-  }
+  )}
 </head>

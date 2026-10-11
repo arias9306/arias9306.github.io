@@ -17,26 +17,24 @@ let resultPosts = getPostsByYear(page.data);
 ---
 
 <IndexPage>
-  {
-    Object.keys(resultPosts)
-      .sort((a, b) => Number(b) - Number(a))
-      .map((year) => (
-        <div>
-          <div class="text-2xl font-extrabold my-4" style="line-height: 32px;">
-            {year}
-          </div>
-          <ul>
-            {resultPosts[year].map((post) => (
-              <li style="list-style-type: disc;" class="ml-4 my-2">
-                <a href={'/' + post.collection + '/' + post.id}>
-                  <span class="mr-4">{dayjs(post.data.date).format('YYYY-MM-DD')}</span>
-                  <span class="hover:text-skin-active">{post.data.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+  {Object.keys(resultPosts)
+    .sort((a, b) => Number(b) - Number(a))
+    .map((year) => (
+      <div>
+        <div class="text-2xl font-extrabold my-4" style="line-height: 32px;">
+          {year}
         </div>
-      ))
-  }
+        <ul>
+          {resultPosts[year].map((post) => (
+            <li style="list-style-type: disc;" class="ml-4 my-2">
+              <a href={'/' + post.collection + '/' + post.id}>
+                <span class="mr-4">{dayjs(post.data.date).format('YYYY-MM-DD')}</span>
+                <span class="hover:text-skin-active">{post.data.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
   <Pagination currentPage={page.currentPage} totalPage={page.lastPage} prefixUrl="/archive/" url={page.slug} />
 </IndexPage>
